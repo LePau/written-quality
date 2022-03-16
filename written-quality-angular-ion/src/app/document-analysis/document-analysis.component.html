@@ -1,0 +1,24 @@
+<div class="ion-padding">
+  <div *ngIf="this.document?.analysis">
+    <p>
+      Each item is between 0 and 100
+    </p>
+    <app-written-document-quality *ngIf="overallQuality" [quality]="overallQuality">
+    </app-written-document-quality>
+    <app-written-document-quality *ngFor="let quality of this.document.analysis.qualities" [quality]="quality">
+    </app-written-document-quality>
+  </div>
+
+  <p *ngIf="!this.document?.analysis">
+    No analysis available. Please provide a paragraph or two in the content to the left and then click the "Analyze"
+    button at the bottom to
+  </p>
+
+  <div *ngIf="this.paragraphs.length" class="ion-padding">
+    Analyzed text:
+    <p *ngFor="let paragraph of this.paragraphs">
+      {{paragraph}}
+    </p>
+
+  </div>
+</div>

@@ -1,0 +1,7 @@
+{
+  "name": "written-quality-angular-ion",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

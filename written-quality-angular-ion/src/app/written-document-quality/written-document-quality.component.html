@@ -1,0 +1,13 @@
+<ion-item>
+
+  <ion-label class="ion-text-wrap">
+
+    <h2 style="display:flex">
+      <ion-badge style="margin-right:5px" [color]="this.quality.rankColor">{{this.quality.rankPercent}}</ion-badge>
+      {{this.quality.title}}
+    </h2>
+    <p *ngIf="this.quality.description">
+      {{this.quality.description}}
+    </p>
+  </ion-label>
+</ion-item>

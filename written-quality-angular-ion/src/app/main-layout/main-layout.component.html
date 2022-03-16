@@ -1,0 +1,79 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="start"></ion-menu-button>
+    </ion-buttons>
+    <h2 style="padding-left:10px">Analyze a document</h2>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="end">
+        <ion-button *ngIf="this.document?.analysis?.overall" [color]="this.document.analysis.overall.rankColor"
+          [fill]="'solid'">
+          {{this.document.analysis.overall.rankPercent}}%
+        </ion-button>
+      </ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div id="container" class="ion-padding">
+    <div class="ion-padding">
+      <p>
+        This tool analyzes a document for sentiment and readability.  Load a document into the text area below by 1) clicking one of the links below or 2) pasting and scraping a URL and then clicking the "Analyze" button or 3) typing directly into the rich text area below and then clicking the "Analyze" button.  
+      </p>
+      A few suggestions to test (click one):
+      <ul>
+        <li>
+          <a href="https://www.cheatsheet.com/culture/ways-pets-improve-your-life.html/"
+            (click)="scrapeAndAnalyze($event)">
+            Proven Ways Pets Improve Your Life, According to Science
+          </a>
+        </li>
+        <li>
+          <a href="https://ionicframework.com/docs/api/progress-bar" (click)="scrapeAndAnalyze($event)">
+            Ionic Progress Bar Documentation
+          </a> (false negative)
+        </li>
+        <li>
+          <a href="https://www.bostonglobe.com/2022/03/14/opinion/tom-brady-is-all-about-tom-brady/"
+            (click)="scrapeAndAnalyze($event)">
+            Tom Brady is all about Tom Brady
+          </a>
+        </li>
+        <li>
+          <a href="https://www.wired.com/2008/02/ff-seacowboys/" (click)="scrapeAndAnalyze($event)">
+            High Tech Cowboys of the Deep Seas: The Race to Save the Cougar Ace
+          </a> (long - may temporarily freeze on mobile)
+        </li>
+
+      </ul>
+
+    </div>
+    <ion-item style="align-items: center; margin-bottom:1em">
+
+      <ion-label position="floating">
+        <ion-icon name="download-outline"></ion-icon>
+        Paste URL here to scrape a document
+      </ion-label>
+      <ion-input [(ngModel)]="urlToScrape">
+      </ion-input>
+      <ion-button *ngIf="this.urlToScrape && !this.scraping" clear slot="end" fill="solid" (click)="scrapeUrl()">
+        Scrape
+      </ion-button>
+      <ion-progress-bar *ngIf="this.scraping" type="indeterminate"></ion-progress-bar>
+
+    </ion-item>
+    <app-document-editor #editor></app-document-editor>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-padding">
+  <ion-progress-bar *ngIf="analyzing" type="indeterminate"></ion-progress-bar>
+  <ion-buttons style="display: flex;justify-content: right;">
+    <ion-button fill="solid" color="primary" (click)="analyze()" [disabled]="analyzing">
+      Analyze
+    </ion-button>
+    <ion-button (click)="editor.clear();this.urlToScrape=''" fill="clear" color="primary">clear</ion-button>
+  </ion-buttons>
+</ion-footer>
