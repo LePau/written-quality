@@ -18,11 +18,11 @@ For example, I fed it an article regarding Tom Brady and it had "better" sentime
 
 # Technologies
 
-Front end framework - Angular
-Front end UI - Ionic
-Back end service provider - Google Cloud Platform
-Back end framework - .Net Core 5
-Additional services - Dockerfile, GCP Cloud Run, GCP Natural Language Processing
+* Front end framework - **Angular**
+* Front end UI - **Ionic**
+* Back end service provider - **Google Cloud Platform**
+* Back end framework - **.Net Core 5**
+* Additional services - **Dockerfile, GCP Cloud Run, GCP Natural Language Processing**
 
 There is no persistence, so no storage/DB technologies were used.
 
