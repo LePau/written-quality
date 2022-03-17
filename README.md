@@ -16,6 +16,16 @@ I learned that Google NLP provides some pretty basic AI and NLP services, which 
 
 For example, I fed it an article regarding Tom Brady and it had "better" sentiment and lower "emotional" ratings than a documentation piece regarding Ionic progress bars.  I got a bit distracted in this area, and eventually accepted that my timeframe to achieve my above goal would not allow for much more tinkering. So, I pivoted the application to sentiment and length of the article, while breaking down the sentiment for each sentence, so that the user can observe the algorithm the way I did.
 
+# Technologies
+
+Front end framework - Angular
+Front end UI - Ionic
+Back end service provider - Google Cloud Platform
+Back end framework - .Net Core 5
+Additional services - Dockerfile, GCP Cloud Run, GCP Natural Language Processing
+
+There is no persistence, so no storage/DB technologies were used.
+
 # Running locally
 
 To run the angular app, run `npm start run` from the `written-quality/written-quality-angular-ion` folder.  You may need to first run `npm install`.
